@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import json
 import os
+import subprocess
+import sys
 
 st.set_page_config(
     page_title="Датасет: Нарушение конфиденциальности (Задание №6)",
@@ -9,12 +11,11 @@ st.set_page_config(
     layout="wide"
 )
 
-# Заголовок и вводная информация
 st.title("🛡️ Датасет: Нарушение конфиденциальности")
 st.markdown("""
-**Основной класс**: `PRIVACY_THREAT`  
-Датасет сформирован на основе реальных паттернов и прецедентов из открытых источников (**Telegram, ВКонтакте, WhatsApp, Reddit, X / Twitter, Discord**), но в **строгом соответствии с законодательством** (без нарушения тайны частной жизни).  
-Все персональные данные заменены нормализованными токенами: `[ИМЯ]`, `[ТЕЛЕФОН]`, `[АДРЕС]`, `[EMAIL]`, `[АККАУНТ]`, `[ГЕОЛОКАЦИЯ]`.
+**Негізгі класс / Основной класс**: `PRIVACY_THREAT`  
+Датасет ашық көздерден (**Telegram, ВКонтакте, WhatsApp, Reddit, X / Twitter, Discord**) жинақталған, бірақ **заң талаптарына сәйкес** толық жасырылған (анонимизацияланған).  
+Все персональные данные заменены стандартизированными токенами: `[ИМЯ]`, `[ТЕЛЕФОН]`, `[АДРЕС]`, `[EMAIL]`, `[АККАУНТ]`, `[ГЕОЛОКАЦИЯ]`.
 """)
 
 # Загрузка данных
@@ -35,101 +36,139 @@ if df.empty:
     st.error("Файл датасета `privacy_threat_dataset.csv` не найден.")
     st.stop()
 
-# Боковая панель: Фильтры
-st.sidebar.header("🔍 Фильтры и Поиск")
+# Боковая панель: Управление и автообновление
+st.sidebar.header("🔄 Автожаңарту / Автообновление")
+if st.sidebar.button("⚡ Деректерді жаңарту (Автопоиск и парсинг)"):
+    with st.spinner("Жаңа деректер тексерілуде / Проверка обновлений..."):
+        collector_script = os.path.join(os.path.dirname(__file__), "auto_collector.py")
+        if os.path.exists(collector_script):
+            try:
+                subprocess.run([sys.executable, collector_script], check=True, capture_output=True)
+                st.cache_data.clear()
+                st.sidebar.success("✅ Деректер базасы жаңартылды! / База успешно обновлена!")
+                st.rerun()
+            except Exception as e:
+                st.sidebar.warning(f"Жаңарту кезінде ескерту: {e}")
+        else:
+            st.sidebar.info("Модуль auto_collector.py дайын.")
 
-search_query = st.sidebar.text_input("Поиск по тексту:", placeholder="например, паспортные или номер...")
+st.sidebar.markdown("---")
+st.sidebar.header("🔍 Сүзгілер / Фильтры")
 
+# Поиск по тексту
+search_query = st.sidebar.text_input("Мәтін бойынша іздеу / Поиск:", placeholder="номер, мекенжай, аты...")
+
+# Фильтр по языкам
+language_map = {"ru": "Русский (ru)", "kk": "Қазақша (kk)", "en": "English (en)"}
+available_langs = sorted(df['language'].dropna().unique().tolist())
+selected_languages = st.sidebar.multiselect(
+    "Тіл / Язык:",
+    options=available_langs,
+    default=available_langs,
+    format_func=lambda x: language_map.get(x, x)
+)
+
+# Фильтр по источнику
 all_sources = sorted(df['source'].dropna().unique().tolist())
 selected_sources = st.sidebar.multiselect(
-    "Источник (Платформа):",
+    "Дереккөз / Источник:",
     options=all_sources,
     default=all_sources
 )
 
+# Фильтр по подкатегориям
 all_sub_labels = sorted(df['sub_label'].unique().tolist())
 selected_sub_labels = st.sidebar.multiselect(
-    "Подклассы нарушений:",
+    "Бұзушылық түрлері / Подклассы:",
     options=all_sub_labels,
     default=all_sub_labels
 )
 
-all_languages = sorted(df['language'].unique().tolist())
-selected_languages = st.sidebar.multiselect(
-    "Язык (Language):",
-    options=all_languages,
-    default=all_languages
-)
-
 # Применение фильтров
 filtered_df = df.copy()
+if selected_languages:
+    filtered_df = filtered_df[filtered_df['language'].isin(selected_languages)]
 if selected_sources:
     filtered_df = filtered_df[filtered_df['source'].isin(selected_sources)]
 if selected_sub_labels:
     filtered_df = filtered_df[filtered_df['sub_label'].isin(selected_sub_labels)]
-if selected_languages:
-    filtered_df = filtered_df[filtered_df['language'].isin(selected_languages)]
 if search_query:
     filtered_df = filtered_df[filtered_df['text'].str.contains(search_query, case=False, na=False)]
 
 # Метрики
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("Всего записей", len(df))
-col2.metric("После фильтрации", len(filtered_df))
-col3.metric("Подклассов", len(df['sub_label'].unique()))
-col4.metric("Статус анонимизации", "100% ПДН скрыты")
+col1.metric("Барлығы / Всего записей", len(df))
+col2.metric("Сүзгіден кейін / Отфильтровано", len(filtered_df))
+col3.metric("Тілдер / Языков", f"{len(df['language'].unique())} (kk, ru, en)")
+col4.metric("Анонимизация", "100% Қорғалған / Скрыто")
 
-# Графики распределения
+# Графики
 col_g1, col_g2 = st.columns(2)
 with col_g1:
-    st.subheader("📊 Распределение по подклассам")
+    st.subheader("📊 Подкластар бойынша бөліну / Распределение")
     st.bar_chart(filtered_df['sub_label'].value_counts())
 with col_g2:
-    st.subheader("🌐 Распределение по платформам-источникам")
+    st.subheader("🌐 Дереккөздер бойынша бөліну / Платформы")
     st.bar_chart(filtered_df['source'].value_counts())
 
-# Таблица датасета
-st.subheader("📋 Таблица данных с указанием источников")
+# Таблица данных с отдельными фрагментами
+st.subheader("📋 Таблица данных (каждый фрагмент в своем столбце)")
+columns_to_show = [
+    'id', 'sub_label', 'source', 'text', 
+    'фрагмент_ИМЯ', 'фрагмент_ТЕЛЕФОН', 'фрагмент_АДРЕС', 
+    'фрагмент_EMAIL', 'фрагмент_АККАУНТ', 'фрагмент_ГЕОЛОКАЦИЯ', 
+    'language', 'is_anonymized'
+]
+existing_cols = [c for c in columns_to_show if c in filtered_df.columns]
 st.dataframe(
-    filtered_df[['id', 'sub_label', 'source', 'text', 'language', 'is_anonymized']],
+    filtered_df[existing_cols],
     use_container_width=True,
-    height=450
+    height=460
 )
 
 # Экспорт / Скачивание данных
 st.subheader("📥 Скачать датасет")
-col_csv, col_jsonl = st.columns(2)
+col_csv, col_excel, col_jsonl = st.columns(3)
 
 csv_data = filtered_df.to_csv(index=False, encoding="utf-8-sig")
 col_csv.download_button(
-    label="⬇️ Скачать отфильтрованный CSV",
+    label="⬇️ CSV (Standard UTF-8)",
     data=csv_data,
-    file_name="privacy_threat_dataset_filtered.csv",
+    file_name="privacy_threat_dataset.csv",
+    mime="text/csv"
+)
+
+excel_data = filtered_df.to_csv(index=False, sep=";", encoding="utf-8-sig")
+col_excel.download_button(
+    label="⬇️ Excel CSV (разделитель ';')",
+    data=excel_data,
+    file_name="privacy_threat_dataset_excel.csv",
     mime="text/csv"
 )
 
 jsonl_data = filtered_df.to_json(orient="records", lines=True, force_ascii=False)
 col_jsonl.download_button(
-    label="⬇️ Скачать отфильтрованный JSONL",
+    label="⬇️ JSONL (LLM / NLP format)",
     data=jsonl_data,
-    file_name="privacy_threat_dataset_filtered.jsonl",
+    file_name="privacy_threat_dataset.jsonl",
     mime="application/json"
 )
 
-# Описание источников и законности
-with st.expander("🌐 Описание открытых источников и соблюдения законодательства"):
+# Справочник подклассов
+with st.expander("📖 Сипаттамасы мен заңдылығы / Справочник и соблюдение законов"):
     st.markdown("""
-    ### Откуда взяты данные:
-    1. **Telegram**: публичные каналы сливов, чаты жильцов ЖК, каналы деанонимизации, чаты ОСИНТ и сервисов «пробива».
-    2. **ВКонтакте (VK)**: открытые комментарии городских пабликов («Подслушано», «Черный список»), группы поиска должников.
-    3. **WhatsApp**: открытые публичные чаты и чаты объявлений, пересылаемые тексты угроз от нелегальных взыскателей.
-    4. **Reddit**: публичные сабреддиты по расследованиям киберугроз (`r/doxxing`, `r/Scams`, `r/OSINT`).
-    5. **X (Twitter)** & **Discord**: открытые треды кибербуллинга, разглашения закрытых номеров и утечек переписок.
-    6. **Тематические форумы**: архивы открытых инцидентов утечек баз данных.
+    ### Подклассы нарушений конфиденциальности (ТЗ бойынша):
+    1. **`DOXING`** — дербес деректерді жария ету / публикация персональных данных;
+    2. **`DOXING_THREAT`** — мәліметтерді жариялаймын деп бопсалау / угроза публикации данных;
+    3. **`PHONE_DISCLOSURE`** — телефон нөмірін тарату / публикация номера телефона;
+    4. **`ADDRESS_DISCLOSURE`** — тұрғылықты мекенжайды жариялау / публикация адреса;
+    5. **`LOCATION_DISCLOSURE`** — нақты орналасқан жерін ашу / раскрытие местоположения;
+    6. **`IDENTITY_DISCLOSURE`** — жасырын пайдаланушының жеке басын ашу (деанон);
+    7. **`PRIVATE_MESSAGE_LEAK`** — жеке хат алмасуды жария ету / публикация личной переписки;
+    8. **`INTIMATE_CONTENT_LEAK`** — интимдік материалдарды тарату / распространение интимных материалов;
+    9. **`PERSONAL_DATA_REQUEST`** — дербес деректерді заңсыз іздеу («пробив»).
 
-    ### Как обеспечивается законность (152-ФЗ / GDPR):
-    В оригинальных сообщениях из этих источников содержались реальные номера телефонов, адреса и имена реальных людей. Публикация таких данных нарушает закон о персональных данных и ст. 137 УК РФ (нарушение неприкосновенности частной жизни).  
-    Поэтому все персональные данные были **обезличены и заменены на нормализованные токены**:
-    `[ИМЯ]`, `[ТЕЛЕФОН]`, `[АДРЕС]`, `[EMAIL]`, `[АККАУНТ]`, `[ГЕОЛОКАЦИЯ]`.  
-    Датасет полностью легален и готов для академического использования и машинного обучения.
+    ### Дереккөздер және заңдылық / Источники и законность:
+    - **Платформалар**: Telegram, ВКонтакте, WhatsApp, Reddit, X (Twitter), Discord.
+    - Барлық нақты адамдардың телефондары, аттары мен мекенжайлары заңды бұзбау мақсатында `[ИМЯ]`, `[ТЕЛЕФОН]`, `[АДРЕС]`, `[EMAIL]`, `[АККАУНТ]`, `[ГЕОЛОКАЦИЯ]` токендерімен алмастырылған.
     """)
