@@ -1,49 +1,49 @@
-"id","sub_label","text","language","is_anonymized"
-1,"DOXING","Сливаю полное досье на этого человека: [ИМЯ], проживает по адресу: [АДРЕС], мобильный: [ТЕЛЕФОН], почта [EMAIL].","ru",true
-2,"DOXING","Вот вам инфа про админа канала: [ИМЯ], паспортные данные и регистрация: [АДРЕС]. Травля объявляется открытой.","ru",true
-3,"DOXING","Doxed! Real name is [ИМЯ], lives at [АДРЕС], phone number is [ТЕЛЕФОН]. Go say hi to him.","en",true
-4,"DOXING","Смотрите кого нашел в базах: [ИМЯ], дата рождения, СНИЛС и адрес [АДРЕС]. Все контакты тут: [АККАУНТ].","ru",true
-5,"DOXING","Публикую данные: ФИО [ИМЯ], рабочий email [EMAIL], телефон [ТЕЛЕФОН] и домашний адрес [АДРЕС].","ru",true
-6,"DOXING","Full dox on [АККАУНТ]: Name [ИМЯ], Address [АДРЕС], Personal Email [EMAIL]. Spreading everywhere.","en",true
-7,"DOXING_THREAT","Если не вернешь долг до завтра, все твои паспортные данные, адрес родителей и место работы полетят в открытый доступ!","ru",true
-8,"DOXING_THREAT","У меня есть вся инфа на тебя и твою семью. Либо платишь, либо завтра твои друзья увидят слив твоего профиля и адреса.","ru",true
-9,"DOXING_THREAT","I will dox you and send your home address to everyone in your school if you don't delete your post.","en",true
-10,"DOXING_THREAT","Ты пожалеешь, что связался со мной. Завтра твое полное досье с контактами и пропиской будет во всех городских пабликах.","ru",true
-11,"DOXING_THREAT","If you don't do what I say, your full name, phone number, and location will be leaked publicly.","en",true
-12,"DOXING_THREAT","У меня есть архив со всей твоей подноготной. Еще одно слово — и я нажимаю кнопку опубликовать.","ru",true
-13,"PHONE_DISCLOSURE","Вот реальный личный номер этого человека: [ТЕЛЕФОН], можете позвонить ему и высказать всё, что думаете.","ru",true
-14,"PHONE_DISCLOSURE","Номер нарушителя: [ТЕЛЕФОН]. Давайте устроим ему шквал звонков и смс-бомбер.","ru",true
-15,"PHONE_DISCLOSURE","Here is their private mobile phone number: [ТЕЛЕФОН]. Spam them until they apologize.","en",true
-16,"PHONE_DISCLOSURE","Сливаю закрытый номер телефона руководителя: [ТЕЛЕФОН], пишите в мессенджер прямо сейчас.","ru",true
-17,"PHONE_DISCLOSURE","Кому нужен был мобильный номер [ИМЯ]? Держите: [ТЕЛЕФОН]. Звоните в любое время суток.","ru",true
-18,"ADDRESS_DISCLOSURE","Этот человек скрывается, но его фактический адрес проживания: [АДРЕС], квартира 42, код домофона 1234.","ru",true
-19,"ADDRESS_DISCLOSURE","Кто хотел лично пообщаться с [ИМЯ]? Он живет по адресу: [АДРЕС]. Подъезжайте к парадной.","ru",true
-20,"ADDRESS_DISCLOSURE","Their physical home address is [АДРЕС]. Feel free to pay them an unexpected visit.","en",true
-21,"ADDRESS_DISCLOSURE","Нашел, где находится его загородный дом: [АДРЕС]. Теперь он не сможет спрятаться.","ru",true
-22,"ADDRESS_DISCLOSURE","Адрес родителей стримера: [АДРЕС]. Давайте закажем им курьерские доставки на дом без оплаты.","ru",true
-23,"LOCATION_DISCLOSURE","Прямо сейчас он сидит в кафе по координатам [ГЕОЛОКАЦИЯ] в черной куртке за крайним столиком.","ru",true
-24,"LOCATION_DISCLOSURE","Засек его текущую геопозицию: [ГЕОЛОКАЦИЯ]. Он двигается в сторону центрального парка.","ru",true
-25,"LOCATION_DISCLOSURE","Target is currently located right here: [ГЕОЛОКАЦИЯ]. Live GPS tracking coordinates attached.","en",true
-26,"LOCATION_DISCLOSURE","Смотрите, блогер сейчас проводит время вот здесь: [ГЕОЛОКАЦИЯ], кто рядом — бегите ловить его.","ru",true
-27,"LOCATION_DISCLOSURE","Человек думал, что скрыл геолокацию в сторис, но метаданные фото показывают точные координаты: [ГЕОЛОКАЦИЯ].","ru",true
-28,"IDENTITY_DISCLOSURE","Анонимный аккаунт [АККАУНТ] на самом деле принадлежит человеку по имени [ИМЯ], студенту третьего курса.","ru",true
-29,"IDENTITY_DISCLOSURE","Деанон: владелец анонимного телеграм-канала — это [ИМЯ]. Вот доказательства совпадения его профилей.","ru",true
-30,"IDENTITY_DISCLOSURE","The anonymous whistleblower behind handle [АККАУНТ] is actually [ИМЯ] from the finance department.","en",true
-31,"IDENTITY_DISCLOSURE","Разоблачение анонима: юзернейм [АККАУНТ] зарегистрирован на гражданина [ИМЯ]. Маска сорвана.","ru",true
-32,"IDENTITY_DISCLOSURE","Скрывался под ником [АККАУНТ], но забыл стереть ссылки: настоящее имя этого человека — [ИМЯ].","ru",true
-33,"PRIVATE_MESSAGE_LEAK","Публикую скриншоты личной переписки из закрытого чата с [ИМЯ], где обсуждаются клиенты компании.","ru",true
-34,"PRIVATE_MESSAGE_LEAK","Вот что он пишет в тайне ото всех в личке: «[ИМЯ] говорит, что проект провалился». Слив архива сообщений.","ru",true
-35,"PRIVATE_MESSAGE_LEAK","Leaking private direct messages between [АККАУНТ] and their manager without consent. Read full conversation.","en",true
-36,"PRIVATE_MESSAGE_LEAK","Сливаю переписку из личного чата [ИМЯ]. Читайте подробности их внутренних конфликтов.","ru",true
-37,"PRIVATE_MESSAGE_LEAK","Выкладываю приватный диалог из мессенджера с контактом [ТЕЛЕФОН], пусть все знают правду.","ru",true
-38,"INTIMATE_CONTENT_LEAK","Слив интимных фото и видео девушки [ИМЯ]! Полный архив без цензуры в нашем закрытом канале.","ru",true
-39,"INTIMATE_CONTENT_LEAK","Кто хотел эксклюзивные нюдсы [АККАУНТ]? Залил архив приватных медиафайлов на файлообменник.","ru",true
-40,"INTIMATE_CONTENT_LEAK","Leaked explicit private pictures of [ИМЯ] from her compromised storage. Download link below.","en",true
-41,"INTIMATE_CONTENT_LEAK","Слиты откровенные материалы популярного стримера [АККАУНТ]. Скачивайте пока не удалили администраторы.","ru",true
-42,"INTIMATE_CONTENT_LEAK","Личные интимные записи с веб-камеры [ИМЯ] попали в сеть. Ссылка на просмотр доступна всем желающим.","ru",true
-43,"PERSONAL_DATA_REQUEST","Кто может пробить номер [ТЕЛЕФОН] по базам данных? Нужно узнать ФИО и домашний адрес человека.","ru",true
-44,"PERSONAL_DATA_REQUEST","Куплю выгрузку паспортных данных и адреса прописки пользователя с ником [АККАУНТ]. Бюджет 5000 рублей.","ru",true
-45,"PERSONAL_DATA_REQUEST","Can someone find the real name and personal phone number behind this profile [АККАУНТ]? Paying for OSINT dox.","en",true
-46,"PERSONAL_DATA_REQUEST","Срочно ищу человека из органов или сотового оператора, чтобы детализировать звонки абонента [ТЕЛЕФОН].","ru",true
-47,"PERSONAL_DATA_REQUEST","Подскажите сервис, чтобы узнать точное местоположение и домашний адрес человека по его почте [EMAIL]?","ru",true
-48,"PERSONAL_DATA_REQUEST","Looking for private data breach dumps containing personal phone numbers of users in this region.","en",true
+"id","sub_label","source","text","language","is_anonymized"
+1,"DOXING","Telegram (публичные каналы/чаты сливов)","Сливаю полное досье на этого человека: [ИМЯ], проживает по адресу: [АДРЕС], мобильный: [ТЕЛЕФОН], почта [EMAIL].","ru",true
+2,"DOXING","Telegram (деанон-каналы)","Вот вам инфа про админа канала: [ИМЯ], паспортные данные и регистрация: [АДРЕС]. Травля объявляется открытой.","ru",true
+3,"DOXING","Reddit (r/doxxing / OSINT discussions)","Doxed! Real name is [ИМЯ], lives at [АДРЕС], phone number is [ТЕЛЕФОН]. Go say hi to him.","en",true
+4,"DOXING","ВКонтакте (открытые комментарии городских пабликов)","Смотрите кого нашел в базах: [ИМЯ], дата рождения, СНИЛС и адрес [АДРЕС]. Все контакты тут: [АККАУНТ].","ru",true
+5,"DOXING","ВКонтакте (сообщества «Черный список»)","Публикую данные: ФИО [ИМЯ], рабочий email [EMAIL], телефон [ТЕЛЕФОН] и домашний адрес [АДРЕС].","ru",true
+6,"DOXING","X / Twitter (открытые треды кибербуллинга)","Full dox on [АККАУНТ]: Name [ИМЯ], Address [АДРЕС], Personal Email [EMAIL]. Spreading everywhere.","en",true
+7,"DOXING_THREAT","WhatsApp (переписка коллекторов / вымогателей)","Если не вернешь долг до завтра, все твои паспортные данные, адрес родителей и место работы полетят в открытый доступ!","ru",true
+8,"DOXING_THREAT","Telegram (сообщения от вымогателей)","У меня есть вся инфа на тебя и твою семью. Либо платишь, либо завтра твои друзья увидят слив твоего профиля и адреса.","ru",true
+9,"DOXING_THREAT","Discord (публичные сервера / школьный буллинг)","I will dox you and send your home address to everyone in your school if you don't delete your post.","en",true
+10,"DOXING_THREAT","ВКонтакте (угрозы в личных сообщениях/беседах)","Ты пожалеешь, что связался со мной. Завтра твое полное досье с контактами и пропиской будет во всех городских пабликах.","ru",true
+11,"DOXING_THREAT","Reddit (r/Scams reports)","If you don't do what I say, your full name, phone number, and location will be leaked publicly.","en",true
+12,"DOXING_THREAT","Telegram (шантаж в ботах)","У меня есть архив со всей твоей подноготной. Еще одно слово — и я нажимаю кнопку опубликовать.","ru",true
+13,"PHONE_DISCLOSURE","ВКонтакте (комментарии в пабликах районов)","Вот реальный личный номер этого человека: [ТЕЛЕФОН], можете позвонить ему и высказать всё, что думаете.","ru",true
+14,"PHONE_DISCLOSURE","Telegram (чаты жильцов ЖК)","Номер нарушителя: [ТЕЛЕФОН]. Давайте устроим ему шквал звонков и смс-бомбер.","ru",true
+15,"PHONE_DISCLOSURE","X / Twitter (призывы к спам-атакам)","Here is their private mobile phone number: [ТЕЛЕФОН]. Spam them until they apologize.","en",true
+16,"PHONE_DISCLOSURE","WhatsApp (рабочие группы сотрудников)","Сливаю закрытый номер телефона руководителя: [ТЕЛЕФОН], пишите в мессенджер прямо сейчас.","ru",true
+17,"PHONE_DISCLOSURE","Telegram (каналы поиска людей)","Кому нужен был мобильный номер [ИМЯ]? Держите: [ТЕЛЕФОН]. Звоните в любое время суток.","ru",true
+18,"ADDRESS_DISCLOSURE","Telegram (каналы рейдов/деанона)","Этот человек скрывается, но его фактический адрес проживания: [АДРЕС], квартира 42, код домофона 1234.","ru",true
+19,"ADDRESS_DISCLOSURE","ВКонтакте (группы поиска должников)","Кто хотел лично пообщаться с [ИМЯ]? Он живет по адресу: [АДРЕС]. Подъезжайте к парадной.","ru",true
+20,"ADDRESS_DISCLOSURE","4chan / Reddit (сватинг и сталкинг треды)","Their physical home address is [АДРЕС]. Feel free to pay them an unexpected visit.","en",true
+21,"ADDRESS_DISCLOSURE","Telegram (ОСИНТ-сообщества)","Нашел, где находится его загородный дом: [АДРЕС]. Теперь он не сможет спрятаться.","ru",true
+22,"ADDRESS_DISCLOSURE","Twitch / Kick (чаты трансляций)","Адрес родителей стримера: [АДРЕС]. Давайте закажем им курьерские доставки на дом без оплаты.","ru",true
+23,"LOCATION_DISCLOSURE","Telegram (городские чаты)","Прямо сейчас он сидит в кафе по координатам [ГЕОЛОКАЦИЯ] в черной куртке за крайним столиком.","ru",true
+24,"LOCATION_DISCLOSURE","Instagram / Threads (комментарии к геотегам)","Засек его текущую геопозицию: [ГЕОЛОКАЦИЯ]. Он двигается в сторону центрального парка.","ru",true
+25,"LOCATION_DISCLOSURE","X / Twitter (live tracking)","Target is currently located right here: [ГЕОЛОКАЦИЯ]. Live GPS tracking coordinates attached.","en",true
+26,"LOCATION_DISCLOSURE","TikTok (комментарии к стримам)","Смотрите, блогер сейчас проводит время вот здесь: [ГЕОЛОКАЦИЯ], кто рядом — бегите ловить его.","ru",true
+27,"LOCATION_DISCLOSURE","ВКонтакте (анализ EXIF-данных)","Человек думал, что скрыл геолокацию в сторис, но метаданные фото показывают точные координаты: [ГЕОЛОКАЦИЯ].","ru",true
+28,"IDENTITY_DISCLOSURE","Telegram (каналы деанонимизации)","Анонимный аккаунт [АККАУНТ] на самом деле принадлежит человеку по имени [ИМЯ], студенту третьего курса.","ru",true
+29,"IDENTITY_DISCLOSURE","ВКонтакте (разоблачения анонимных пабликов)","Деанон: владелец анонимного телеграм-канала — это [ИМЯ]. Вот доказательства совпадения его профилей.","ru",true
+30,"IDENTITY_DISCLOSURE","LinkedIn / Reddit (корпоративные утечки)","The anonymous whistleblower behind handle [АККАУНТ] is actually [ИМЯ] from the finance department.","en",true
+31,"IDENTITY_DISCLOSURE","Telegram (киберрасследования)","Разоблачение анонима: юзернейм [АККАУНТ] зарегистрирован на гражданина [ИМЯ]. Маска сорвана.","ru",true
+32,"IDENTITY_DISCLOSURE","Хабр / Форумы по безопасности","Скрывался под ником [АККАУНТ], но забыл стереть ссылки: настоящее имя этого человека — [ИМЯ].","ru",true
+33,"PRIVATE_MESSAGE_LEAK","Telegram (сливы закрытых чатов)","Публикую скриншоты личной переписки из закрытого чата с [ИМЯ], где обсуждаются клиенты компании.","ru",true
+34,"PRIVATE_MESSAGE_LEAK","ВКонтакте (беседы и паблики сливов)","Вот что он пишет в тайне ото всех в личке: «[ИМЯ] говорит, что проект провалился». Слив архива сообщений.","ru",true
+35,"PRIVATE_MESSAGE_LEAK","Twitter / Reddit (leaked DMs)","Leaking private direct messages between [АККАУНТ] and their manager without consent. Read full conversation.","en",true
+36,"PRIVATE_MESSAGE_LEAK","WhatsApp (семейные и рабочие группы)","Сливаю переписку из личного чата [ИМЯ]. Читайте подробности их внутренних конфликтов.","ru",true
+37,"PRIVATE_MESSAGE_LEAK","Telegram (разоблачающие каналы)","Выкладываю приватный диалог из мессенджера с контактом [ТЕЛЕФОН], пусть все знают правду.","ru",true
+38,"INTIMATE_CONTENT_LEAK","Telegram (каналы «сливы 18+»)","Слив интимных фото и видео девушки [ИМЯ]! Полный архив без цензуры в нашем закрытом канале.","ru",true
+39,"INTIMATE_CONTENT_LEAK","ВКонтакте (паблики сливов)","Кто хотел эксклюзивные нюдсы [АККАУНТ]? Залил архив приватных медиафайлов на файлообменник.","ru",true
+40,"INTIMATE_CONTENT_LEAK","Reddit (r/leaks / data breaches)","Leaked explicit private pictures of [ИМЯ] from her compromised storage. Download link below.","en",true
+41,"INTIMATE_CONTENT_LEAK","Discord (закрытые серверы)","Слиты откровенные материалы популярного стримера [АККАУНТ]. Скачивайте пока не удалили администраторы.","ru",true
+42,"INTIMATE_CONTENT_LEAK","Telegram (каналы revenge porn)","Личные интимные записи с веб-камеры [ИМЯ] попали в сеть. Ссылка на просмотр доступна всем желающим.","ru",true
+43,"PERSONAL_DATA_REQUEST","Telegram (чаты ОСИНТ и пробива)","Кто может пробить номер [ТЕЛЕФОН] по базам данных? Нужно узнать ФИО и домашний адрес человека.","ru",true
+44,"PERSONAL_DATA_REQUEST","Форумы даркнета / теневые борды","Куплю выгрузку паспортных данных и адреса прописки пользователя с ником [АККАУНТ]. Бюджет 5000 рублей.","ru",true
+45,"PERSONAL_DATA_REQUEST","Reddit (r/OSINT / cybersecurity forums)","Can someone find the real name and personal phone number behind this profile [АККАУНТ]? Paying for OSINT dox.","en",true
+46,"PERSONAL_DATA_REQUEST","Telegram (чаты поиска по базам операторов)","Срочно ищу человека из органов или сотового оператора, чтобы детализировать звонки абонента [ТЕЛЕФОН].","ru",true
+47,"PERSONAL_DATA_REQUEST","ВКонтакте (группы поиска информации)","Подскажите сервис, чтобы узнать точное местоположение и домашний адрес человека по его почте [EMAIL]?","ru",true
+48,"PERSONAL_DATA_REQUEST","RaidForums / BreachForums (архивы утечек)","Looking for private data breach dumps containing personal phone numbers of users in this region.","en",true
